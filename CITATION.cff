@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software or computational analysis, please cite it as below."
+authors:
+  - family-names: "Bioinformatics Researcher"
+    given-names: "Rahul (MSc Biotechnology)"
+title: "Integrated Transcriptomic and Network-Based Analysis of Gastric Cancer Using GEO Dataset GSE17154"
+version: 1.0.0
+date-released: 2026-11-19
+url: "https://github.com/rm0212174-star/Gastric-Cancer-GSE17154"
+keywords:
+  - bioinformatics
+  - transcriptomics
+  - gastric-cancer
+  - microarray
+  - limma
+  - gsea

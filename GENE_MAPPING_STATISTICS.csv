@@ -1,0 +1,9 @@
+Metric,Value
+Total_Array_Features,44544
+Technical_Control_Spots,4347
+Experimental_Probes,40197
+Unique_Gene_Symbols,25518
+Single_Probe_Genes,18174
+Multi_Probe_Genes,7344
+Max_Probes_For_Single_Gene,392
+Gene_With_Max_Probes,ACTB

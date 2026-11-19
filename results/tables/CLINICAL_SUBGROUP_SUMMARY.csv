@@ -1,0 +1,11 @@
+Category_Type,Subgroup_Name,Sample_Count,Percentage,Notes
+TNM_Staging,NodePositive_NplusM0,13,54.17,pT2-T4 localized vs node-positive regional vs metastatic M1
+TNM_Staging,Localized_N0M0,7,29.17,pT2-T4 localized vs node-positive regional vs metastatic M1
+TNM_Staging,Metastatic_M1,4,16.67,pT2-T4 localized vs node-positive regional vs metastatic M1
+Nuclear_Grade,III,19,79.17,Pathological nuclear differentiation grade
+Nuclear_Grade,II,4,16.67,Pathological nuclear differentiation grade
+Nuclear_Grade,Unknown,1,4.17,Pathological nuclear differentiation grade
+Clinical_Outcome,NED,12,50.0,NED = No Evidence of Disease; Failed = Recurrence/Died
+Clinical_Outcome,Unknown,6,25.0,NED = No Evidence of Disease; Failed = Recurrence/Died
+Clinical_Outcome,failed,4,16.67,NED = No Evidence of Disease; Failed = Recurrence/Died
+Clinical_Outcome,FAILED,2,8.33,NED = No Evidence of Disease; Failed = Recurrence/Died

@@ -1,0 +1,31 @@
+Pathway,Gene_Count,Mean_Rank,Median_Rank,Direction,MannWhitney_P_Value,Adj_P_Value
+Purine metabolism,8,25160.625,25291.5,Down-regulated (Shifted to Bottom),1.1737309160779623e-12,3.521192748233887e-11
+Human T-cell leukemia virus 1 infection,15,25056.733333333334,25151.0,Down-regulated (Shifted to Bottom),9.950113549184275e-11,1.4925170323776413e-09
+Hepatocellular carcinoma,8,24772.625,25022.5,Down-regulated (Shifted to Bottom),4.312351777481137e-10,4.3123517774811366e-09
+Unfolded Protein Response (UPR) R-HSA-381119,7,24846.85714285714,24817.0,Down-regulated (Shifted to Bottom),2.79041166998057e-09,2.0928087524854273e-08
+Glycolysis / Gluconeogenesis,4,25397.25,25495.0,Down-regulated (Shifted to Bottom),1.0304636409676471e-08,6.182781845805884e-08
+Inositol Phosphate Metabolism R-HSA-1483249,4,25339.5,25356.5,Down-regulated (Shifted to Bottom),4.9811609935644896e-08,2.4905804967822447e-07
+ABC transporters,4,25324.5,25424.0,Down-regulated (Shifted to Bottom),6.892193753154655e-08,2.9537973227805664e-07
+JAK-STAT signaling pathway,10,25128.0,25282.0,Down-regulated (Shifted to Bottom),1.090642555516222e-07,4.0899095831858327e-07
+Pancreatic cancer,5,25024.0,25157.0,Down-regulated (Shifted to Bottom),1.3967044082323925e-07,4.655681360774642e-07
+Small cell lung cancer,5,24906.0,25043.0,Down-regulated (Shifted to Bottom),4.0871222929245983e-07,1.2261366878773796e-06
+Butanoate metabolism,3,25392.0,25355.0,Down-regulated (Shifted to Bottom),1.062204727190346e-06,2.896921983246398e-06
+XBP1(S) Activates Chaperone Genes R-HSA-381038,4,24894.5,24971.5,Down-regulated (Shifted to Bottom),7.550605457501832e-06,1.740928651558416e-05
+Oncogene Induced Senescence R-HSA-2559585,4,24883.0,24920.5,Down-regulated (Shifted to Bottom),8.124333707272607e-06,1.740928651558416e-05
+IRE1alpha Activates Chaperones R-HSA-381070,4,24894.5,24971.5,Down-regulated (Shifted to Bottom),7.550605457501832e-06,1.740928651558416e-05
+Adipocytokine signaling pathway,4,24853.25,25010.0,Down-regulated (Shifted to Bottom),9.760325566029578e-06,1.9520651132059155e-05
+Activated NOTCH1 Transmits Signal To Nucleus R-HSA-2122948,3,24957.0,24942.0,Down-regulated (Shifted to Bottom),9.521489196432017e-05,0.00017852792243310033
+Viral carcinogenesis,9,22283.777777777777,25135.0,Down-regulated (Shifted to Bottom),0.00010454579625634658,0.00018449258162884691
+Ferroptosis,3,24920.333333333332,24936.0,Down-regulated (Shifted to Bottom),0.00011516284166829319,0.0001919380694471553
+Cell cycle,8,21876.5,25023.0,Down-regulated (Shifted to Bottom),0.00014258940085783397,0.00022514115924921155
+Bladder cancer,3,24694.333333333332,24574.0,Down-regulated (Shifted to Bottom),0.00030177901195816104,0.0004526685179372416
+Gastric cancer,7,21301.85714285714,24684.0,Down-regulated (Shifted to Bottom),0.0010957978103306755,0.0015654254433295366
+Signaling By TGF-beta Receptor Complex R-HSA-170834,6,21046.166666666668,25275.0,Down-regulated (Shifted to Bottom),0.0037473365491686654,0.0051100043852299985
+Signaling By BRAF And RAF1 Fusions R-HSA-6802952,5,20235.8,24942.0,Down-regulated (Shifted to Bottom),0.0197758101185894,0.02579453493729052
+Insulin secretion,5,20154.8,25278.0,Down-regulated (Shifted to Bottom),0.021339697765759873,0.02667462220719984
+Cyclin D Associated Events In G1 R-HSA-69231,4,18833.5,24920.5,Down-regulated (Shifted to Bottom),0.10040380126028844,0.12048456151234613
+Cushing syndrome,9,16463.333333333332,23958.0,Down-regulated (Shifted to Bottom),0.13129322602498106,0.15149218387497815
+Deregulated CDK5 Triggers Neurodegenerative Pathways In Alzheimers Disease Models R-HSA-8862803,3,8292.0,35.0,Up-regulated (Shifted to Top),0.3088572029997177,0.3431746699996863
+TP53 Regulates Transcription Of Genes Involved In G2 Cell Cycle Arrest R-HSA-6804114,3,16615.0,24352.0,Down-regulated (Shifted to Bottom),0.3820548307061164,0.40934446147083897
+Defective Intrinsic Pathway For Apoptosis R-HSA-9734009,4,12307.0,12193.5,Up-regulated (Shifted to Top),0.9058857274772963,0.9371231663558238
+Cortisol synthesis and secretion,4,12473.0,12267.0,Up-regulated (Shifted to Top),0.9404110056170358,0.9404110056170358

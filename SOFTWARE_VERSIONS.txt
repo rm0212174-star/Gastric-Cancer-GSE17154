@@ -1,0 +1,23 @@
+================================================================================
+SOFTWARE AND DEPENDENCY ENVIRONMENT SPECIFICATION
+Project: Integrated Transcriptomic and Network-Based Analysis of Gastric Cancer (GSE17154)
+Audit Date: 2026-11-19
+Operating System: Windows 11 (64-bit AMD64)
+================================================================================
+
+Python Core Runtime:
+Python 3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]
+
+Core Scientific & Statistical Packages:
+- pandas: 3.1.1
+- numpy: 2.5.3
+- scipy: 1.18.1
+- matplotlib: 3.11.2
+- networkx: 3.7
+- requests: 2.34.2
+
+Bioinformatics Databases & APIs:
+- NCBI GEO REST / FTP: GSE17154, GPL6699
+- Enrichr REST API: GO BP/MF/CC (2021), KEGG (2021 Human), Reactome (2022)
+- STRING Database REST API: v12.5 (Homo sapiens, Score >= 0.400)
+- Europe PMC REST API: PMC3004887 full-text XML

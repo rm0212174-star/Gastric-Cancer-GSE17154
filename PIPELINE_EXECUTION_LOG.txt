@@ -1,0 +1,302 @@
+================================================================================
+EXECUTING REAL GSE17154 GASTRIC CANCER BIOINFORMATICS PIPELINE
+================================================================================
+[Step 1/9] Running Probe-to-Gene Annotation...
+================================================================================
+TASK 2: PARSING OFFICIAL GPL6699 SOFT ANNOTATION & GPR MAPPING
+================================================================================
+Parsing GPR file for Spot-level Name and ID...
+Loaded 44,544 spots from GPR.
+Parsing GPL6699 SOFT table...
+Loaded 44,544 probes from GPL6699 SOFT.
+
+--- Annotation Summary ---
+Total Probes: 44544
+Control Probes: 4,347
+Experimental Probes: 40,197
+Experimental Mapped to Gene Symbol: 40,197 probes (100.00%)
+Experimental Unmapped: 0 probes (0.00%)
+Unique Gene Symbols represented: 25,518
+Genes with multiple probes: 7,344
+Top 5 genes with most probes in experimental set:
+Gene_Symbol
+ACTB     392
+HPRT1    104
+HMBS     104
+SDHA     104
+B2M      104
+Name: count, dtype: int64
+
+Saved Probe Annotation table to:
+ - C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\qc_annotation_outputs\tables\Probe_Annotation.csv
+ - C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\Probe_Annotation.csv
+[Step 2/9] Running Quality Control, Boxplots, Correlation and PCA...
+================================================================================
+TASK 1: COMPREHENSIVE QUALITY CONTROL ON REAL GSE17154 EXPRESSION MATRIX
+================================================================================
+Loaded Metadata: 49 samples
+Loaded Annotation: 44544 probes
+Reading Expression values from Series Matrix...
+Expression matrix loaded: shape (44544, 49)
+
+--- Missing Value Investigation ---
+Total missing values: 1
+Sample GSM429144 (CANCER - 9 (gastric cancer study)) has 1 null value at Probe ['24']
+  Probe 24 across-sample mean = -0.0497
+
+Calculating sample-level QC metrics...
+   Sample_ID  ...  Missing_Count
+0  GSM429115  ...              0
+1  GSM429131  ...              0
+2  GSM429132  ...              0
+3  GSM429133  ...              0
+4  GSM429134  ...              0
+
+[5 rows x 10 columns]
+Saved Sample QC summary table to:
+ - C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\qc_annotation_outputs\tables\Sample_QC_Summary.csv
+ - C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\Sample_QC_Summary.csv
+
+Generating QC Boxplots for all 49 samples...
+Saved Boxplots to:
+ - C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\qc_annotation_outputs\figures\QC_Boxplots.png
+ - C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\QC_Boxplots.png
+
+Generating QC Density Plots for all 49 samples...
+Saved Density Plots to:
+ - C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\qc_annotation_outputs\figures\QC_Density_Plots.png
+ - C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\QC_Density_Plots.png
+
+Calculating sample-to-sample Pearson correlation matrix...
+Correlation matrix calculated: (49, 49)
+Min correlation: 0.0034, Max: 1.0000, Mean: 0.6088
+Saved Correlation Heatmap to:
+ - C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\qc_annotation_outputs\figures\Sample_Correlation_Heatmap.png
+ - C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\Sample_Correlation_Heatmap.png
+
+Performing Principal Component Analysis (PCA)...
+Explained Variance: PC1=19.52%, PC2=18.82%, PC3=12.46%
+Saved PCA Plot to:
+ - C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\qc_annotation_outputs\figures\Real_Data_PCA.png
+ - C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\Real_Data_PCA.png
+
+Investigating influence of control probes...
+Control probe submatrix: (4347, 49)
+Control probes Mean LogRatio: 0.1385, Std: 0.7495
+Experimental probes Mean LogRatio: 0.0765, Std: 0.5440
+Experimental-only PC1 vs All-probes PC1 Pearson correlation: r = 0.99260
+Conclusion: Control probes do not distort sample separation, but MUST be filtered out prior to differential expression.
+
+Quality Control and Annotation script finished successfully!
+[Step 3/9] Running Limma Empirical Bayes Differential Expression Analysis...
+C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\run_limma_deg.py:227: SyntaxWarning: invalid escape sequence '\D'
+  full_table_path = os.path.join(BASE_DIR, f"deg_outputs/tables\DEG_{c_name}_Full.csv")
+C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\run_limma_deg.py:228: SyntaxWarning: invalid escape sequence '\D'
+  top_table_path = os.path.join(BASE_DIR, f"deg_outputs/tables\DEG_{c_name}_Top_FDR05_FC2.csv")
+C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\run_limma_deg.py:278: SyntaxWarning: invalid escape sequence '\V'
+  volcano_out1 = os.path.join(BASE_DIR, f"deg_outputs/figures\Volcano_{c_name}.png")
+C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\run_limma_deg.py:326: SyntaxWarning: invalid escape sequence '\H'
+  heatmap_out1 = os.path.join(BASE_DIR, f"deg_outputs/figures\Heatmap_Top50_{c_name}.png")
+================================================================================
+DIFFERENTIAL EXPRESSION ANALYSIS: LIMMA EMPIRICAL BAYES MODELING
+================================================================================
+Total samples in metadata: 49
+Sample_Group
+CANCER                  24
+Paired_Normal_PN        20
+Apparently_Normal_AN     5
+Name: count, dtype: int64
+
+Loading expression values...
+Full Expression Matrix shape: (44544, 49)
+Total Experimental Probes for analysis: 40,197 (filtering 4,347 controls)
+Probes with missing values in experimental set: ['24']
+Design Matrix constructed: (49, 3)
+Group sample counts: CANCER=24, PN=20, AN=5
+
+Fitting Empirical Bayes Moderated Linear Models across 40,197 probes...
+Empirical Bayes Prior: d0 = 2.15, s02 = 0.0340, Total df = 48.15
+
+--- Contrast: Cancer_vs_PN ---
+Total probes tested: 40,197
+FDR < 0.05 (any FC): 2,886
+FDR < 0.05 & |Log2FC| >= 1.0: 633 (Up: 60, Down: 573)
+Top 5 differentially expressed probes:
+  Probe_ID Gene_Symbol    Log2FC  Moderated_t       P_Value   Adj_P_Value
+0    11909      ATP1B4 -4.308052   -11.891264  6.661338e-16  2.677658e-11
+1    16985       KLRA1 -4.289455   -11.133555  6.439294e-15  1.294201e-10
+2     5469       GAPDH -3.452405   -10.860468  1.509903e-14  2.023119e-10
+3    21515        DPP3 -2.878869   -10.712465  2.442491e-14  2.454520e-10
+4     9576       CPEB2 -2.480492   -10.525030  4.440892e-14  3.570211e-10
+
+--- Contrast: Cancer_vs_AN ---
+Total probes tested: 40,197
+FDR < 0.05 (any FC): 1,314
+FDR < 0.05 & |Log2FC| >= 1.0: 643 (Up: 93, Down: 550)
+Top 5 differentially expressed probes:
+  Probe_ID Gene_Symbol    Log2FC  Moderated_t       P_Value  Adj_P_Value
+0     5469       GAPDH -4.033701    -7.814980  4.109304e-10     0.000010
+1    16985       KLRA1 -4.777763    -7.637544  7.651642e-10     0.000010
+2    11909      ATP1B4 -4.490206    -7.633271  7.767227e-10     0.000010
+3    10768   LOC283999 -3.925798    -7.131556  4.545654e-09     0.000046
+4    27335       BRWD3 -4.582238    -6.914081  9.804554e-09     0.000070
+
+--- Contrast: PN_vs_AN ---
+Total probes tested: 40,197
+FDR < 0.05 (any FC): 0
+FDR < 0.05 & |Log2FC| >= 1.0: 0 (Up: 0, Down: 0)
+Top 5 differentially expressed probes:
+  Probe_ID   Gene_Symbol    Log2FC  Moderated_t   P_Value  Adj_P_Value
+0    22872         MACF1 -0.925097    -4.937886  0.000010     0.260113
+1     6945  suid=1583518 -0.919308    -4.858768  0.000013     0.260113
+2     3330         PAIP2 -0.501644    -4.370482  0.000066     0.525414
+3     4874          CDH6 -0.779457    -4.356512  0.000069     0.525414
+4     3646         DDX3Y -0.913163    -4.307302  0.000081     0.525414
+
+Generating Volcano plots...
+Saved Volcano plot: C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\deg_outputs/figures\Volcano_Cancer_vs_PN.png
+Saved Volcano plot: C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\deg_outputs/figures\Volcano_Cancer_vs_AN.png
+Saved Volcano plot: C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\deg_outputs/figures\Volcano_PN_vs_AN.png
+
+Generating Heatmaps for top differentially expressed genes...
+Saved Top 50 Heatmap: C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\deg_outputs/figures\Heatmap_Top50_Cancer_vs_PN.png
+Saved Top 50 Heatmap: C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\deg_outputs/figures\Heatmap_Top50_Cancer_vs_AN.png
+Saved Top 50 Heatmap: C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\deg_outputs/figures\Heatmap_Top50_PN_vs_AN.png
+
+Investigating clinical associations among CANCER samples (N=24)...
+Cancer samples by stage category:
+Stage_Category
+NodePositive_NplusM0    13
+Localized_N0M0           7
+Metastatic_M1            4
+Name: count, dtype: int64
+Saved Cancer Clinical Subgroups to: C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\deg_outputs/tables\Cancer_Clinical_Subgroups.csv
+
+Differential Expression and Clinical Investigation completed successfully!
+[Step 4/9] Building Gene-Level Summarized DEG Tables...
+=== Cancer_vs_PN GENE-LEVEL SUMMARY ===
+Total Unique Genes Analyzed: 25,518
+Significant Genes (FDR < 0.05): 2,625
+Strict Significant Genes (|Log2FC| >= 1.0 & FDR < 0.05): 595 (Up: 52, Down: 543)
+=== Cancer_vs_AN GENE-LEVEL SUMMARY ===
+Total Unique Genes Analyzed: 25,518
+Significant Genes (FDR < 0.05): 1,232
+Strict Significant Genes (|Log2FC| >= 1.0 & FDR < 0.05): 605 (Up: 81, Down: 524)
+=== PN_vs_AN GENE-LEVEL SUMMARY ===
+Total Unique Genes Analyzed: 25,518
+Significant Genes (FDR < 0.05): 0
+Strict Significant Genes (|Log2FC| >= 1.0 & FDR < 0.05): 0 (Up: 0, Down: 0)
+
+Gene-level summarization tables saved successfully!
+[Step 5/9] Running Gene Ontology, KEGG, Reactome and GSEA Enrichment...
+================================================================================
+STAGE 5: GENE ONTOLOGY, KEGG AND REACTOME PATHWAY ENRICHMENT ANALYSIS
+================================================================================
+Background Gene Universe: 25,518 unique genes from GPL6699
+Total Unique Significant DEGs (|Log2FC| >= 1.0 & FDR < 0.05): 609
+
+Submitting DEG list to Enrichr database...
+Enrichr User List ID: 142396557
+Retrieving enrichment for GO_BP (GO_Biological_Process_2021)...
+ -> GO_BP: 2287 total terms tested | 0 significant (FDR < 0.05)
+Retrieving enrichment for GO_MF (GO_Molecular_Function_2021)...
+ -> GO_MF: 442 total terms tested | 0 significant (FDR < 0.05)
+Retrieving enrichment for GO_CC (GO_Cellular_Component_2021)...
+ -> GO_CC: 226 total terms tested | 0 significant (FDR < 0.05)
+Retrieving enrichment for KEGG (KEGG_2021_Human)...
+ -> KEGG: 250 total terms tested | 0 significant (FDR < 0.05)
+Retrieving enrichment for Reactome (Reactome_2022)...
+ -> Reactome: 903 total terms tested | 0 significant (FDR < 0.05)
+
+Generating Enrichment Dot Plots...
+Saved Dotplot: C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\results\Enrichment\GO_BP_Enrichment_DotPlot.png
+Saved Dotplot: C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\results\Enrichment\GO_MF_Enrichment_DotPlot.png
+Saved Dotplot: C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\results\Enrichment\GO_CC_Enrichment_DotPlot.png
+Saved Dotplot: C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\results\Enrichment\KEGG_Pathway_Enrichment_DotPlot.png
+Saved Dotplot: C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\results\Enrichment\Reactome_Pathway_Enrichment_DotPlot.png
+
+Performing Fast Ranked Gene-Set Enrichment Analysis (GSEA)...
+Ranked gene universe for GSEA: 25,518 genes
+Saved GSEA Results to: C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\results\Enrichment\GSEA_Results.csv
+                                        Pathway  ...   Adj_P_Value
+0                             Purine metabolism  ...  3.521193e-11
+1       Human T-cell leukemia virus 1 infection  ...  1.492517e-09
+2                      Hepatocellular carcinoma  ...  4.312352e-09
+3  Unfolded Protein Response (UPR) R-HSA-381119  ...  2.092809e-08
+4                  Glycolysis / Gluconeogenesis  ...  6.182782e-08
+
+[5 rows x 7 columns]
+
+Gene Ontology and Pathway Enrichment completed successfully!
+[Step 6/9] Running Protein-Protein Interaction (STRING v12.5) Analysis...
+================================================================================
+STAGE 6: PROTEIN-PROTEIN INTERACTION (PPI) NETWORK ANALYSIS (STRING v12.5)
+================================================================================
+Querying STRING v12.5 for 45 top candidate genes...
+Candidate genes: ATP1B4, KLRA1, GAPDH, DPP3, CPEB2, BRWD3, NIP30, SHANK2, ACTB, H19, TNS1, MJ-6000-165_205_REVCOMP, MINPP1, GPIAP1, NGLY1
+STRING API returned 13 protein interaction edges (confidence >= 0.400).
+Saved PPI interactions to: C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\results\PPI\PPI_Interactions_STRING.csv
+
+PPI Graph summary: 45 nodes, 13 edges
+
+--- Candidate Hub Genes Identified ---
+  Gene_Symbol    Log2FC  ...  Closeness_Centrality  Is_Connected
+0       GAPDH -3.452405  ...              0.139205          True
+1        ACTB -3.383795  ...              0.139205          True
+2        CSF3 -3.461750  ...              0.111364          True
+3         LTF -1.377783  ...              0.101240          True
+4        CTSD -2.966878  ...              0.085664          True
+5        GAD1 -1.800111  ...              0.085664          True
+6       VDAC3 -2.698546  ...              0.085664          True
+7        OSMR -2.617042  ...              0.069602          True
+8      ATP1B4 -4.308052  ...              0.000000         False
+9       KLRA1 -4.289455  ...              0.000000         False
+
+[10 rows x 6 columns]
+
+Generating PPI Network Visualization...
+Saved PPI Network plot to: C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\results\PPI\PPI_Network_STRING.png
+PPI Network Analysis completed successfully!
+[Step 7/9] Running Clinical Subgroup Analysis...
+================================================================================
+STAGE 7: CLINICAL AND SUBGROUP EXPLORATORY ANALYSIS (CANCER N=24)
+================================================================================
+Total Cancer Samples analyzed: 24
+
+TNM Stage Categories:
+Stage_Category
+NodePositive_NplusM0    13
+Localized_N0M0           7
+Metastatic_M1            4
+Name: count, dtype: int64
+
+Nuclear Grade Breakdown:
+Nuclear_Grade
+III        19
+II          4
+Unknown     1
+Name: count, dtype: int64
+
+Clinical Outcome Breakdown (NED vs Failed):
+Clinical_Outcome
+NED        12
+Unknown     6
+failed      4
+FAILED      2
+Name: count, dtype: int64
+Saved Clinical Subgroup figure to: C:\Users\ACER\BIoinformatics_Training\12_Real_GSE17154_Analysis\results\Clinical\Clinical_Subgroups_Distribution.png
+Clinical Subgroup Analysis completed successfully!
+[Step 8/9] Generating Study Workflow Diagram 
+'Publication' is not recognized as an internal or external command,
+operable program or batch file.
+Generating Study Workflow Schematic Diagram...
+Saved Study_Workflow_Diagram.png
+[Step 9/9] Running Automated Scientific Validation Test Suite...
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.385s
+
+OK
+================================================================================
+PIPELINE COMPLETED SUCCESSFULLY All results, figures, and tests passed.
+================================================================================
